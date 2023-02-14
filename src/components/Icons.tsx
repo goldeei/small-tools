@@ -7,10 +7,10 @@ interface Icon {
 
 export const Checkmark = ({ animate }: Icon) => {
 	return (
-		<i icon={faCheck} className={animate ? "animated" : ""} />
+		<FontAwesomeIcon icon={faCheck} className={animate ? "animated" : ""} />
 	);
 };
 
 export const Close = ({ animate }: Icon) => {
-	return <i icon={faXmark} className={animate ? "animated" : ""} />;
+	return <FontAwesomeIcon icon={faXmark} className={animate ? "animated" : ""} />;
 };
