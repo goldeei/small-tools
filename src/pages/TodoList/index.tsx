@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -60,9 +59,9 @@ export default function TodoList() {
 		console.table(todos);
 	}, [todos]);
 	return (
-		<TodoListWrapper>
+		<div>
 			<button onClick={clearTodos}>Clear</button>
-			<TodoListContainer>
+			<div>
 				<h4>Todos</h4>
 				<AddTodo addTodo={addTodo} />
 				{todos.length > 0 &&
@@ -79,8 +78,8 @@ export default function TodoList() {
 							);
 						}
 					})}
-			</TodoListContainer>
-			<TodoCompleteContainer>
+			</div>
+			<div>
 				<h4>Completed</h4>
 				{todos.length > 0 &&
 					todos.filter((todo: TodoItem) => todo.complete === true) &&
@@ -96,8 +95,8 @@ export default function TodoList() {
 							);
 						}
 					})}
-			</TodoCompleteContainer>
-			<TodoRecentlyDeletedContainer>
+			</div>
+			<div>
 				<h4>Recently Deleted</h4>
 				{todos.length > 0 &&
 					todos.filter((todo: TodoItem) => todo.timeDeleted !== null) &&
@@ -113,33 +112,7 @@ export default function TodoList() {
 							);
 						}
 					})}
-			</TodoRecentlyDeletedContainer>
-		</TodoListWrapper>
+			</div>
+		</div>
 	);
 }
-
-const TodoListWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-`;
-const TodoListContainer = styled.div`
-	width: min(500px, 100%);
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-`;
-const TodoCompleteContainer = styled.div`
-	width: min(500px, 100%);
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-`;
-const TodoRecentlyDeletedContainer = styled.div`
-	width: min(500px, 100%);
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-`;

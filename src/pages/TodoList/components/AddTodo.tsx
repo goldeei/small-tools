@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 
 const initial = {
 	id: 0,
@@ -34,7 +33,7 @@ export default function addTodo({ addTodo }: AddTodo) {
 		form?.querySelectorAll("input").forEach((input) => (input.value = ""));
 	};
 	return (
-		<AddTodo>
+		<div>
 			Add Todo
 			<form id="new-todo-form" onSubmit={handleSubmit}>
 				<input
@@ -72,20 +71,6 @@ export default function addTodo({ addTodo }: AddTodo) {
 					Add Todo
 				</button>
 			</form>
-		</AddTodo>
+		</div>
 	);
 }
-
-const AddTodo = styled.div`
-	flex: 1 1 25%;
-	border: 1px solid black;
-	& > form {
-		padding: 1rem;
-		gap: 1rem;
-		display: flex;
-		flex-direction: column;
-		& > input {
-			flex: 0 1 75%;
-		}
-	}
-`;
