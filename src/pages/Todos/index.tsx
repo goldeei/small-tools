@@ -3,7 +3,7 @@ import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { ToolContainer } from "@/components/Layout";
-import ListTodos from "./components/ListTodos";
+import ListTodos from "./components/TodoList";
 import styled from "styled-components";
 
 const TodoContainer = styled(ToolContainer)`
@@ -13,19 +13,20 @@ const TodoContainer = styled(ToolContainer)`
   grid-template-columns: 1fr 3fr;
   column-gap: 5%;
   row-gap: 2rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
   & > .active {
     margin-right: 5%;
     grid-area: active;
     display: flex;
-    background-color: green;
   }
   & > .completed {
     grid-area: completed;
-    background-color: blue;
   }
   & > .deleted {
     grid-area: deleted;
-    background-color: red;
   }
 `;
 

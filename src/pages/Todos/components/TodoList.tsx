@@ -5,7 +5,7 @@ interface Props {
   status: string;
 }
 
-function ListTodos({ todos, status }: Props) {
+function TodoList({ todos, status }: Props) {
   const filterTodos = (status: string) => {
     if (todos.length === 0) return [];
     if (status === "deleted") {
@@ -30,4 +30,4 @@ function ListTodos({ todos, status }: Props) {
   );
 }
 
-export default ListTodos;
+export default TodoList;

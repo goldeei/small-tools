@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { Button } from "@/components/Buttons";
 import { Checkmark, Close } from "@/components/Icons";
+import styled from "styled-components";
 
 interface Props {
   completeTodo: (params: number) => void;
@@ -8,13 +9,18 @@ interface Props {
   todo: TodoItem;
 }
 
+const StyledTodoItem = styled.div`
+  display: flex;
+  border: 1px solid black;
+`;
+
 function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
   const todoClass = classNames({
     complete: todo.complete,
     deleted: todo.timeDeleted,
   });
   return (
-    <div className={todoClass} id={`todo-${todo.id}`}>
+    <StyledTodoItem className={todoClass} id={`todo-${todo.id}`}>
       <div className="controls">
         <Button onClick={() => completeTodo(todo.id)}>
           <Checkmark animate />
@@ -31,7 +37,7 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
         <div className="description">{todo.description}</div>
         <div className="due-date">{todo.date}</div>
       </div>
-    </div>
+    </StyledTodoItem>
   );
 }
 
