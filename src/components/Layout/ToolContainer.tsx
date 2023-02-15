@@ -3,10 +3,13 @@ import styled from "styled-components";
 
 interface Props {
   children: ReactNode;
+  className?: string;
 }
 
-function ToolContainer({ children }: Props) {
-  return <StyledToolContainer>{children}</StyledToolContainer>;
+function ToolContainer({ children, className }: Props) {
+  return (
+    <StyledToolContainer className={className}>{children}</StyledToolContainer>
+  );
 }
 const StyledToolContainer = styled.div`
   display: grid;
