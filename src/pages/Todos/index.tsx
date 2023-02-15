@@ -29,19 +29,6 @@ const TodoContainer = styled(ToolContainer)`
   }
 `;
 
-// const RecentlyDeleted = styled.div`
-//   grid-area: deleted;
-//   background-color: red;
-// `;
-// const Completed = styled.div`
-//   grid-area: completed;
-//   background-color: blue;
-// `;
-// const Active = styled.div`
-//   grid-area: active;
-//   background-color: green;
-// `;
-
 export default function Todos() {
   const [storedTodos, setStoredTodos] = useLocalStorage("Todos", "");
   const [todos, setTodos] = useState(storedTodos);
