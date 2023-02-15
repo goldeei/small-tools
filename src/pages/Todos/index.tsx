@@ -12,14 +12,8 @@ const TodoContainer = styled(ToolContainer)`
   grid-template-columns: 1fr 3fr;
   column-gap: 5%;
   row-gap: 2rem;
-  & > div {
-    display: flex;
-    flex-direction: column;
-  }
   & > .active {
-    margin-right: 5%;
     grid-area: active;
-    display: flex;
   }
   & > .completed {
     grid-area: completed;
