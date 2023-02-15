@@ -3,9 +3,44 @@ import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { ToolContainer } from "@/components/Layout";
+import ListTodos from "./components/ListTodos";
 import styled from "styled-components";
 
-const TodoContainer = styled(ToolContainer)``;
+const TodoContainer = styled(ToolContainer)`
+  grid-template-areas:
+    "completed active"
+    "deleted active";
+  grid-template-columns: 1fr 3fr;
+  column-gap: 5%;
+  row-gap: 2rem;
+  & > .active {
+    margin-right: 5%;
+    grid-area: active;
+    display: flex;
+    background-color: green;
+  }
+  & > .completed {
+    grid-area: completed;
+    background-color: blue;
+  }
+  & > .deleted {
+    grid-area: deleted;
+    background-color: red;
+  }
+`;
+
+// const RecentlyDeleted = styled.div`
+//   grid-area: deleted;
+//   background-color: red;
+// `;
+// const Completed = styled.div`
+//   grid-area: completed;
+//   background-color: blue;
+// `;
+// const Active = styled.div`
+//   grid-area: active;
+//   background-color: green;
+// `;
 
 export default function Todos() {
   const [storedTodos, setStoredTodos] = useLocalStorage("Todos", "");
@@ -65,10 +100,23 @@ export default function Todos() {
   }, [todos]);
   return (
     <TodoContainer>
-      <button onClick={clearTodos}>Clear</button>
-      <div className="todos-todolist">
+      {/* <AddTodo addTodo={addTodo} /> */}
+      {/* <button onClick={clearTodos}>Clear</button> */}
+      <div className="deleted">
+        <h1>Deleted</h1>
+        <ListTodos todos={todos} status={"deleted"} />
+      </div>
+      <div className="completed">
+        <h1>Completed</h1>
+        <ListTodos todos={todos} status={"completed"} />
+      </div>
+      <div className="active">
+        <h1>Active</h1>
+        <ListTodos todos={todos} status={"active"} />
+      </div>
+      {/* <div className="todos-todolist">
         <h4>Todos</h4>
-        <AddTodo addTodo={addTodo} />
+        
         {todos.length > 0 &&
           todos.filter((todo: TodoItem) => todo.complete === false) &&
           todos.map((todo: TodoItem) => {
@@ -117,7 +165,7 @@ export default function Todos() {
               );
             }
           })}
-      </div>
+      </div> */}
     </TodoContainer>
   );
 }
