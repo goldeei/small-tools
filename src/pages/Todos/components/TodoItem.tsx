@@ -15,10 +15,25 @@ const StyledTodoItem = styled.div`
   border: 1px solid black;
   padding: 0.5rem;
   gap: 0.5rem;
+  background-color: #c0efff;
+  align-items: center;
   & > .controls,
   & > .complete {
     display: flex;
     align-items: center;
+  }
+  & > .controls {
+    height: fit-content;
+    padding: 0 0.5rem;
+    gap: 0.25rem;
+    display: flex;
+    &.expanded {
+      flex-direction: column;
+      padding: 0.5rem 0;
+    }
+    border-radius: 2rem;
+    background-color: #c0efff;
+    box-shadow: 0px 0px 2px 0px black;
   }
   & > .body {
     flex: 1;
@@ -26,6 +41,9 @@ const StyledTodoItem = styled.div`
       display: flex;
       gap: 1rem;
       align-items: center;
+      &.expanded {
+        border-bottom: 1px solid blue;
+      }
       & > .title {
         flex: 1;
       }
@@ -40,8 +58,12 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
     deleted: todo.timeDeleted,
   });
 
+  const hasDetails = todo.description || todo.difficulty ? true : false;
+
   const showDetails = () => {
-    details ? setShowDetails(false) : setShowDetails(true);
+    if (hasDetails) {
+      return details ? setShowDetails(false) : setShowDetails(true);
+    }
   };
 
   return (
@@ -56,7 +78,7 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
         </Button>
       </div>
       <div className="body">
-        <div className="header">
+        <div className={`header ${details ? "expanded" : ""}`}>
           <span className="title">{todo.title}</span>
           {todo.date && <div className="due-date">Due: {todo.date}</div>}
         </div>
@@ -71,13 +93,15 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
           </>
         )}
       </div>
-      <div className="controls">
+      <div className={`controls ${details ? "expanded" : ""}`}>
         <Button onClick={(e) => e.stopPropagation()}>
           <Close animate />
         </Button>
-        <Button onClick={(e) => e.stopPropagation()}>
-          <DownCaret />
-        </Button>
+        {hasDetails && (
+          <Button onClick={(e) => e.stopPropagation()}>
+            <DownCaret />
+          </Button>
+        )}
         <Button onClick={(e) => e.stopPropagation()}>
           <Edit />
         </Button>
