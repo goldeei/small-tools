@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { Button } from "@/components/Buttons";
-import { Checkmark, Close } from "@/components/Icons";
+import { Checkmark, Close, Edit, DownCaret } from "@/components/Icons";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -15,7 +15,8 @@ const StyledTodoItem = styled.div`
   border: 1px solid black;
   padding: 0.5rem;
   gap: 0.5rem;
-  & > .controls {
+  & > .controls,
+  & > .complete {
     display: flex;
     align-items: center;
   }
@@ -49,8 +50,8 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
       id={`todo-${todo.id}`}
       onClick={showDetails}
     >
-      <div className="controls">
-        <Button onClick={() => completeTodo(todo.id)}>
+      <div className="complete">
+        <Button onClick={(e) => e.stopPropagation()}>
           <Checkmark animate />
         </Button>
       </div>
@@ -58,9 +59,6 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
         <div className="header">
           <span className="title">{todo.title}</span>
           {todo.date && <div className="due-date">Due: {todo.date}</div>}
-          <Button onClick={() => deleteTodo(todo.id)}>
-            <Close animate />
-          </Button>
         </div>
         {details && (
           <>
@@ -72,6 +70,17 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
             )}
           </>
         )}
+      </div>
+      <div className="controls">
+        <Button onClick={(e) => e.stopPropagation()}>
+          <Close animate />
+        </Button>
+        <Button onClick={(e) => e.stopPropagation()}>
+          <DownCaret />
+        </Button>
+        <Button onClick={(e) => e.stopPropagation()}>
+          <Edit />
+        </Button>
       </div>
     </StyledTodoItem>
   );
