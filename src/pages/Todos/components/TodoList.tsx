@@ -1,9 +1,17 @@
+import { ToolContainer } from "@/components/Layout";
+import styled from "styled-components";
 import TodoItem from "./TodoItem";
 
 interface Props {
   todos: TodoItem[];
   status: string;
 }
+
+const StyledTodoList = styled(ToolContainer)`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
 
 function TodoList({ todos, status }: Props) {
   const filterTodos = (status: string) => {
@@ -22,11 +30,10 @@ function TodoList({ todos, status }: Props) {
   };
   const todoList = filterTodos(status);
   return (
-    <>
-      {todoList.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </>
+    <StyledTodoList>
+      {todoList.length !== 0 &&
+        todoList.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+    </StyledTodoList>
   );
 }
 
