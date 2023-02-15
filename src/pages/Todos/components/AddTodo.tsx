@@ -10,12 +10,12 @@ const initial = {
   timeDeleted: false,
 };
 
-interface AddTodo {
+interface Props {
   todos: TodoItem[];
   updateTodos: (params: TodoItem[]) => void;
 }
 
-export default function addTodo({ todos, updateTodos }: AddTodo) {
+export default function AddTodo({ todos, updateTodos }: Props) {
   const [data, setData] = useState(initial);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
