@@ -10,6 +10,7 @@ function ToolContainer({ children }: Props) {
 }
 const StyledToolContainer = styled.div`
   display: grid;
+  padding: 0.5rem;
   border: 1px solid black;
 `;
 export { ToolContainer };
