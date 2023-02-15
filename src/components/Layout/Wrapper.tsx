@@ -9,8 +9,8 @@ function Wrapper({ children }: Props) {
   return <StyledWrapper>{children}</StyledWrapper>;
 }
 const StyledWrapper = styled.div`
-  width: 1400px;
-  max-width: 100%;
+  max-width: 1400px;
+  width: 90%;
   margin: 0 auto;
 `;
 export { Wrapper };
