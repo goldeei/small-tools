@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { ToolContainer } from "@/components/Layout";
