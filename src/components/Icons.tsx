@@ -4,10 +4,14 @@ import {
   faXmark,
   faPenToSquare,
   faChevronDown,
+  faEllipsisH,
+  faEllipsisV,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   animate?: boolean;
+  direction?: "left" | "right" | "up" | "down";
+  orientation?: "vertical" | "horizontal";
 }
 
 export const Checkmark = ({ animate }: Props) => {
@@ -33,6 +37,14 @@ export const DownCaret = ({ animate }: Props) => {
   return (
     <FontAwesomeIcon
       icon={faChevronDown}
+      className={animate ? "animated" : ""}
+    />
+  );
+};
+export const Ellipses = ({ animate, orientation }: Props) => {
+  return (
+    <FontAwesomeIcon
+      icon={orientation === "vertical" ? faEllipsisV : faEllipsisH}
       className={animate ? "animated" : ""}
     />
   );
