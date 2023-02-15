@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import styled from "styled-components";
 
 //Button base
 interface Button {
@@ -7,10 +8,16 @@ interface Button {
   onClick?: MouseEventHandler;
   width?: number;
 }
+
+const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
 export const Button = ({ width, className, children, onClick }: Button) => {
   return (
-    <button width={width} className={className} onClick={onClick}>
+    <StyledButton width={width} className={className} onClick={onClick}>
       {children}
-    </button>
+    </StyledButton>
   );
 };
