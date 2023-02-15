@@ -1,6 +1,12 @@
 import classNames from "classnames";
 import { Button } from "@/components/Buttons";
-import { Checkmark, Close, Edit, DownCaret } from "@/components/Icons";
+import {
+  Checkmark,
+  Close,
+  Edit,
+  DownCaret,
+  Ellipses,
+} from "@/components/Icons";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -16,9 +22,9 @@ const StyledTodoItem = styled.div`
   padding: 0.5rem;
   gap: 0.5rem;
   background-color: #c0efff;
-  align-items: center;
   & > .controls,
   & > .complete {
+    margin: auto 0;
     display: flex;
     align-items: center;
   }
@@ -27,11 +33,12 @@ const StyledTodoItem = styled.div`
     padding: 0 0.5rem;
     gap: 0.25rem;
     display: flex;
+    justify-content: space-around;
     &.expanded {
       flex-direction: column;
       padding: 0.5rem 0;
     }
-    border-radius: 2rem;
+    border-radius: 0.25rem;
     background-color: #c0efff;
     box-shadow: 0px 0px 2px 0px black;
   }
@@ -94,6 +101,9 @@ function TodoItem({ completeTodo, deleteTodo, todo }: Props) {
         )}
       </div>
       <div className={`controls ${details ? "expanded" : ""}`}>
+        <Button>
+          <Ellipses orientation="vertical" />
+        </Button>
         <Button onClick={(e) => e.stopPropagation()}>
           <Close animate />
         </Button>
