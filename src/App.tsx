@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
 import Navbar from "@/components/Navbar";
 import { Wrapper } from "@/components/Layout";
@@ -10,7 +11,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <Wrapper>
         <Navbar />
         <Routes>
@@ -18,7 +19,7 @@ function App() {
           <Route path="/todo-list" element={<TodoList />} />
         </Routes>
       </Wrapper>
-    </>
+    </RecoilRoot>
   );
 }
 
