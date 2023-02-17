@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import TodoBody from "./TodoBody";
 import TodoControls from "./TodoControls";
+import { motion } from "framer-motion";
 
 interface Props {
   todo: TodoItem;
@@ -40,6 +41,9 @@ function TodoItem({ todo, onUpdate }: Props) {
       className={`todo ${todoClass}`}
       id={`todo-${todo.id}`}
       onClick={toggleExpanded}
+      initial={{ y: -100, zIndex: -1, opacity: 0 }}
+      animate={{ y: 0, zIndex: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <div className="todo-complete">
         <Button
@@ -67,7 +71,7 @@ function TodoItem({ todo, onUpdate }: Props) {
   );
 }
 
-const StyledTodoItem = styled.div`
+const StyledTodoItem = styled(motion.div)`
   display: grid;
   border: 1px solid black;
   grid-template-columns: auto 1fr auto auto;
