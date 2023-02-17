@@ -1,19 +1,26 @@
-import { ToolContainer } from "@/components/Layout";
+import { useState } from "react";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
+
+import { todoState } from "@/recoil/atoms/todoListAtom";
+
+import { ToolContainer } from "@/components/Layout";
 import TodoItem from "./TodoItem";
+import AddTodo from "./AddTodo";
 
-interface Props {
-  todos: TodoItem[];
-  status: string;
-}
+function TodoList({ status }: { status: string }) {
+  const [todos, setTodos] = useRecoilState(todoState);
+  const [editing, setEditing] = useState(false);
 
-const StyledTodoList = styled(ToolContainer)`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
+  const onUpdate: UpdateTodo = (e, id, key, value) => {
+    e.stopPropagation();
+    let updatedData = [...todos].map((item) => {
+      if (item.id === id) return { ...item, [key]: value };
+      else return item;
+    });
+    setTodos(updatedData);
+  };
 
-function TodoList({ todos, status }: Props) {
   const filterTodos = (status: string) => {
     if (todos.length === 0) return [];
     if (status === "deleted") {
@@ -28,13 +35,33 @@ function TodoList({ todos, status }: Props) {
       );
     }
   };
+
   const todoList = filterTodos(status);
   return (
     <StyledTodoList>
       {todoList.length !== 0 &&
-        todoList.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+        todoList.map((todo: TodoItem) => (
+          <TodoItem key={todo.id} todo={todo} onUpdate={onUpdate} />
+        ))}
+      {status === "active" &&
+        (editing ? (
+          <AddTodo
+            todos={todos}
+            setTodos={setTodos}
+            showForm={setEditing}
+            editing={editing}
+          />
+        ) : (
+          <button onClick={() => setEditing(!editing)}>+</button>
+        ))}
     </StyledTodoList>
   );
 }
+
+const StyledTodoList = styled(ToolContainer)`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
 
 export default TodoList;
