@@ -6,7 +6,6 @@ interface Button {
   children: React.ReactNode;
   className?: string;
   onClick?: MouseEventHandler;
-  width?: number;
 }
 
 const StyledButton = styled.button`
@@ -16,7 +15,7 @@ const StyledButton = styled.button`
 
 export const Button = ({ width, className, children, onClick }: Button) => {
   return (
-    <StyledButton width={width} className={className} onClick={onClick}>
+    <StyledButton className={className} onClick={onClick}>
       {children}
     </StyledButton>
   );
