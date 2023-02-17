@@ -1,15 +1,20 @@
 interface Props {
   todo: TodoItem;
+  expanded: boolean;
 }
 
-function TodoBody({ todo }: Props) {
+function TodoBody({ todo, expanded }: Props) {
   return (
-    <div>
+    <>
       <div className="header">{todo.title}</div>
-      <div className="description">{todo.description}</div>
-      <div className="dueDate">{todo.date}</div>
-      <div className="effort">{todo.difficulty}</div>
-    </div>
+      {expanded && (
+        <div className="details">
+          <div className="description">{todo.description}</div>
+          <div className="dueDate">{todo.date}</div>
+          <div className="effort">{todo.difficulty}</div>
+        </div>
+      )}
+    </>
   );
 }
 
