@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { todoState } from "@/recoil/atoms/todoListAtom";
 
 const initial = {
   id: 0,
@@ -12,12 +14,13 @@ const initial = {
 
 interface Props {
   todos: TodoItem[];
-  updateTodos: (params: TodoItem[]) => void;
+  setTodos: (params: TodoItem[]) => void;
+  showForm: (params: boolean) => void;
+  editing: boolean;
 }
 
-export default function AddTodo({ todos, updateTodos }: Props) {
+export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
   const [data, setData] = useState(initial);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setData({
@@ -46,7 +49,7 @@ export default function AddTodo({ todos, updateTodos }: Props) {
         timeDeleted: null,
       },
     ];
-    return updateTodos(newTodos);
+    return setTodos(newTodos);
   };
   return (
     <div>
@@ -87,6 +90,9 @@ export default function AddTodo({ todos, updateTodos }: Props) {
           Add Todo
         </button>
       </form>
+      <button id="close-todo" onClick={() => showForm(!editing)}>
+        X
+      </button>
     </div>
   );
 }
