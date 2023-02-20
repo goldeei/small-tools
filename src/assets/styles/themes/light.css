@@ -1,0 +1,4 @@
+:root[data-theme="light"] {
+  --bg-color: grey;
+  --primary: black;
+}
