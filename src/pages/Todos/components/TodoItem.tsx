@@ -41,9 +41,6 @@ function TodoItem({ todo, onUpdate }: Props) {
       className={`todo ${todoClass}`}
       id={`todo-${todo.id}`}
       onClick={toggleExpanded}
-      initial={{ y: -100, zIndex: -1, opacity: 0 }}
-      animate={{ y: 0, zIndex: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
       <div className="todo-complete">
         <Button
