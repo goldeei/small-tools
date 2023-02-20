@@ -1,32 +1,41 @@
 {
-	"name": "small-tools",
-	"private": true,
-	"version": "0.0.0",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"@fortawesome/free-regular-svg-icons": "^6.3.0",
-		"@fortawesome/free-solid-svg-icons": "^6.3.0",
-		"@fortawesome/react-fontawesome": "^0.2.0",
-		"classnames": "^2.3.2",
-		"framer-motion": "^9.0.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-router-dom": "^6.8.1",
-		"recoil": "^0.7.6",
-		"styled-components": "^5.3.6"
-	},
-	"devDependencies": {
-		"@types/node": "^18.13.0",
-		"@types/react": "^18.0.27",
-		"@types/react-dom": "^18.0.10",
-		"@types/react-router-dom": "^5.3.3",
-		"@types/styled-components": "^5.1.26",
-		"@vitejs/plugin-react-swc": "^3.0.0",
-		"typescript": "^4.9.3",
-		"vite": "^4.1.0"
-	}
+  "name": "small-tools",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "pcss": "postcss src/index.css --dir public --watch",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "classnames": "^2.3.2",
+    "framer-motion": "^9.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "recoil": "^0.7.6",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@rollup/pluginutils": "^5.0.2",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.15",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-modules": "^6.0.0",
+    "postcss-preset-env": "^8.0.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
 }
