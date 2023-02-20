@@ -1,4 +1,4 @@
-import { atom, AtomEffect } from "recoil";
+import { atom } from "recoil";
 import { updateLocalStorage } from "../effects/updateLocalStorage";
 
 export const todoState = atom({
