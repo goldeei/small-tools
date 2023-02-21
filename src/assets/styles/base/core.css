@@ -2,3 +2,24 @@ body {
   background-color: var(--bg-color);
   font-family: "Lato", sans-serif;
 }
+
+hr {
+  &.sm {
+    --size: 1px;
+    border-radius: var(--size);
+  }
+  &.md {
+    --size: 2px;
+    border-radius: var(--size);
+  }
+  &.lg {
+    --size: 3px;
+    border-radius: 2px;
+  }
+  &.xl {
+    --size: 4px;
+    border-radius: 3px;
+  }
+  width: 100%;
+  border: var(--size) solid lightgrey;
+}
