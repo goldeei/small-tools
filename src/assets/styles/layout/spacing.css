@@ -1,0 +1,13 @@
+:root {
+  --gap-sm: 0.25rem;
+  --gap-md: 0.5rem;
+  --gap-lg: 1rem;
+  --gap-xl: 2rem;
+  --gap-xxl: 4rem;
+
+  --p-sm: 0.25rem;
+  --p-md: 0.5rem;
+  --p-lg: 1rem;
+  --p-xl: 2rem;
+  --p-xxl: 4rem;
+}
