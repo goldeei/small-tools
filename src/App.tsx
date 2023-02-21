@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { RecoilRoot, useRecoilState } from "recoil";
+import { RecoilRoot } from "recoil";
 
-import Navbar from "@/components/Navbar";
-import ThemeControl from "./components/ThemeControl";
+import SiteControl from "./components/SiteControl";
 
 import styles from "./App.module.css";
 
@@ -15,10 +13,7 @@ function App() {
     <RecoilRoot>
       <div className={`${styles.wrapper}`}>
         <div className={`${styles.container}`}>
-          <div>
-            <ThemeControl />
-            <Navbar />
-          </div>
+          <SiteControl />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo-list" element={<TodoList />} />

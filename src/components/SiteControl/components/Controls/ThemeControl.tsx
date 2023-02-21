@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
-import { Button } from "./Buttons";
+import { Button } from "../../../Buttons";
 import { userThemeAtom } from "@/recoil/atoms/userThemeAtom";
 
 interface ThemeSettings {
