@@ -10,4 +10,8 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   align-items: center;
+  gap: var(--gap-lg);
+  & > * {
+    height: max(400px, 90%);
+  }
 }
