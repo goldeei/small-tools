@@ -1,0 +1,13 @@
+.wrapper {
+  max-width: 1400px;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+}
