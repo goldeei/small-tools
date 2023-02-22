@@ -6,11 +6,12 @@ import { siteControlState } from "@/recoil/atoms/siteControlsAtom";
 
 import { Home, Gear, Shapes } from "@/components/Icons";
 
+import useTimeout from "@/hooks/useTimeout";
+
 import NavLink from "./NavLink";
 import ExpandedNav from "./ExpandedNav";
 
 import styles from "./navbar.module.css";
-import useTimeout from "@/hooks/useTimeout";
 
 export default function Navbar() {
   const resolvedPath = useResolvedPath("/");
