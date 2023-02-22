@@ -24,9 +24,11 @@ export default function Navbar() {
   return (
     <nav
       className={styles.container}
-      // onMouseLeave={() => {
-      //   setExpanded(false);
-      // }}
+      onMouseLeave={() => {
+        setTimeout(() => {
+          setSiteControls({ ...siteControls, expanded: false });
+        }, 500);
+      }}
     >
       <ul>
         <NavLink to="/">
