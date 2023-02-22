@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
+  faHome,
   faXmark,
   faPenToSquare,
   faChevronDown,
@@ -17,6 +18,11 @@ interface Props {
 export const Checkmark = ({ animate }: Props) => {
   return (
     <FontAwesomeIcon icon={faCheck} className={animate ? "animated" : ""} />
+  );
+};
+export const Home = ({ animate }: Props) => {
+  return (
+    <FontAwesomeIcon icon={faHome} className={animate ? "animated" : ""} />
   );
 };
 
