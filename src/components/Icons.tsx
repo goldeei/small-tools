@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
   faHome,
+  faGear,
+  faShapes,
   faXmark,
   faPenToSquare,
   faChevronDown,
@@ -23,6 +25,16 @@ export const Checkmark = ({ animate }: Props) => {
 export const Home = ({ animate }: Props) => {
   return (
     <FontAwesomeIcon icon={faHome} className={animate ? "animated" : ""} />
+  );
+};
+export const Gear = ({ animate }: Props) => {
+  return (
+    <FontAwesomeIcon icon={faGear} className={animate ? "animated" : ""} />
+  );
+};
+export const Shapes = ({ animate }: Props) => {
+  return (
+    <FontAwesomeIcon icon={faShapes} className={animate ? "animated" : ""} />
   );
 };
 
