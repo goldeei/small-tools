@@ -1,13 +1,7 @@
-import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
 import { Button } from "../../../Buttons";
 import { userThemeAtom } from "@/recoil/atoms/userThemeAtom";
-
-interface ThemeSettings {
-  deviceTheme: boolean;
-  theme: string;
-}
 
 function ThemeControl() {
   const [theme, setTheme] = useRecoilState(userThemeAtom);
