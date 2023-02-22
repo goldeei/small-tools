@@ -10,30 +10,27 @@ import NavLink from "./NavLink";
 import ExpandedNav from "./ExpandedNav";
 
 import styles from "./navbar.module.css";
-import { useState } from "react";
+import useTimeout from "@/hooks/useTimeout";
 
 export default function Navbar() {
   const resolvedPath = useResolvedPath("/");
   const isHome = useMatch({ path: resolvedPath.pathname, end: true });
-
   const [siteControls, setSiteControls] = useRecoilState(siteControlState);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
   const toggleExpanded = (item: string) => {
     setSiteControls({ ...siteControls, expanded: true, item: item });
   };
 
+  const [setTimer, clearTimer] = useTimeout(() => {
+    setSiteControls({ ...siteControls, expanded: false });
+  }, 1000);
   const closeExpanded = () => {
-    const timeout = setTimeout(() => {
-      setSiteControls({ ...siteControls, expanded: false });
-    }, 750);
-    setTimeoutId(timeout);
+    setTimer();
   };
   const cancelClose = () => {
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
-      setTimeoutId(null);
-    }
+    clearTimer();
   };
+
   return (
     <nav
       className={styles.container}
