@@ -1,16 +1,11 @@
-.wrapper {
-  max-width: 1400px;
-  width: 90%;
-  height: 100vh;
-  margin: 0 auto;
-}
-
 .container {
-  height: inherit;
-  display: grid;
-  grid-template-columns: 200px 1fr;
+  margin: 0 auto;
+  width: min(1400px, 100%);
+  padding: 0 1rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: var(--gap-lg);
   & > * {
     height: max(400px, 90%);
   }
