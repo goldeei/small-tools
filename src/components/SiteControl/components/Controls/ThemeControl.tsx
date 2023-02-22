@@ -25,6 +25,7 @@ function ThemeControl() {
     if (Object.keys(theme).length === 0) {
       themeSettings.deviceTheme = true;
       themeSettings.theme = prefersColorScheme;
+      localStorage.setItem("theme", JSON.stringify(themeSettings));
       setTheme(themeSettings);
     } else if (
       theme.deviceTheme === true &&
