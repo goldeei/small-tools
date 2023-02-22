@@ -18,7 +18,6 @@ export const updateLocalStorage =
     }
 
     onSet((newValue: any, _, isReset: boolean) => {
-      console.log(newValue);
       isReset
         ? localStorage.removeItem(key)
         : localStorage.setItem(key, JSON.stringify(newValue));
