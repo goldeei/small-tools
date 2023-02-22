@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilCallback } from "recoil";
 
 import styles from "./App.module.css";
 
@@ -12,19 +12,19 @@ function App() {
   const [theme, setTheme] = useRecoilState(userThemeAtom);
 
   useEffect(() => {
+    console.log(theme);
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark"
     ).matches;
     const prefersColorScheme = prefersDark ? "dark" : "light";
     const deviceTheme = theme.deviceTheme;
-    if (prefersColorScheme !== theme.theme && deviceTheme === true) {
+    if (deviceTheme === true) {
       setTheme({ ...theme, theme: prefersColorScheme });
+      document.documentElement?.setAttribute("data-theme", prefersColorScheme);
+    } else {
+      document.documentElement?.setAttribute("data-theme", theme.theme);
     }
   }, []);
-
-  useEffect(() => {
-    document.documentElement?.setAttribute("data-theme", theme.theme);
-  }, [theme]);
 
   return (
     <div className={`${styles.container}`}>

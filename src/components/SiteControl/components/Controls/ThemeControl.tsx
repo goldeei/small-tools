@@ -1,25 +1,28 @@
-import { useRecoilState } from "recoil";
+import { useState } from "react";
 
 import { Button } from "../../../Buttons";
-import { userThemeAtom } from "@/recoil/atoms/userThemeAtom";
 
 function ThemeControl() {
-  const [theme, setTheme] = useRecoilState(userThemeAtom);
+  const [isTheme, setTheme] = useState(
+    document.documentElement.getAttribute("data-theme")
+  );
 
-  const changeTheme = (theme: string) => {
-    setTheme({
+  function changeTheme() {
+    let newThemeSettings = {
       deviceTheme: false,
-      theme: theme === "dark" ? "light" : "dark",
-    });
-  };
+      theme: isTheme === "light" ? "dark" : "light",
+    };
+    document.documentElement?.setAttribute(
+      "data-theme",
+      newThemeSettings.theme
+    );
+    localStorage.setItem("theme", JSON.stringify(newThemeSettings));
+    setTheme(newThemeSettings.theme);
+  }
 
   return (
-    <Button onClick={() => changeTheme(theme.theme)}>
-      {theme.theme === "dark" ? (
-        <span>Light Mode</span>
-      ) : (
-        <span>Dark Mode</span>
-      )}
+    <Button onClick={() => changeTheme()}>
+      {isTheme === "light" ? <span>Dark</span> : <span>Light</span>}
     </Button>
   );
 }
