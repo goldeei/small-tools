@@ -18,8 +18,8 @@ function App() {
       "(prefers-color-scheme: dark"
     ).matches;
     const prefersColorScheme = prefersDark ? "dark" : "light";
-    const deviceTheme = theme.deviceTheme;
-    if (deviceTheme === true) {
+    const deviceControlsTheme = theme.deviceControlsTheme;
+    if (deviceControlsTheme === true) {
       setTheme({ ...theme, theme: prefersColorScheme });
       document.documentElement?.setAttribute("data-theme", prefersColorScheme);
     } else {

@@ -9,7 +9,7 @@ function ThemeControl() {
 
   function changeTheme() {
     let newThemeSettings = {
-      deviceTheme: false,
+      deviceControlsTheme: false,
       theme: isTheme === "light" ? "dark" : "light",
     };
     document.documentElement?.setAttribute(

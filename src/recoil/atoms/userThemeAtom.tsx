@@ -2,7 +2,7 @@ import { atom } from "recoil";
 import { updateLocalStorage } from "../effects/updateLocalStorage";
 
 const defaultValue = {
-  deviceTheme: true,
+  deviceControlsTheme: true,
   theme: "light",
 };
 
