@@ -1,7 +1,13 @@
 import ThemeControl from "./ThemeControl";
+import ClearLocalStorage from "./ClearLocalStorage";
 
 function Controls() {
-  return <ThemeControl />;
+  return (
+    <div>
+      <ThemeControl />
+      <ClearLocalStorage />
+    </div>
+  );
 }
 
 export default Controls;
