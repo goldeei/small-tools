@@ -8,7 +8,6 @@ function SiteControl() {
     <div className={`${styles.container} card`}>
       <Controls />
       <Navbar />
-      <hr className="lg" />
     </div>
   );
 }
