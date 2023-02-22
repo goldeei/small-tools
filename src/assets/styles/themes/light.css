@@ -1,4 +1,4 @@
 :root[data-theme="light"] {
-  --bg-color: lightgrey;
-  --primary: black;
+  --bg-color: grey;
+  --primary: #ffffff;
 }
