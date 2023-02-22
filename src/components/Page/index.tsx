@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import SiteControl from "@/components/SiteControl";
 
 import styles from "./page.module.css";
@@ -10,7 +12,7 @@ interface Props {
 function Page({ pageControl, pageContent }: Props) {
   return (
     <div className={styles.container}>
-      <div>
+      <div className="card">
         <SiteControl />
         {pageControl}
       </div>

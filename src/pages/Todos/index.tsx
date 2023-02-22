@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-import AddTodo from "./components/AddTodo";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import { motion } from "framer-motion";
 import { ToolContainer } from "@/components/Layout";
 import ListTodos from "./components/TodoList";
 import styled from "styled-components";
+import Page from "@/components/Page";
 
 const TodoContainer = styled(ToolContainer)`
   grid-template-areas:
@@ -24,21 +23,39 @@ const TodoContainer = styled(ToolContainer)`
 `;
 
 export default function Todos() {
-  return (
-    <TodoContainer>
-      {/* <button onClick={clearTodos}>Clear</button> */}
-      <div className="deleted">
-        <h1>Deleted</h1>
-        <ListTodos status={"deleted"} />
+  const Test = () => {
+    return (
+      <div className="card">
+        <div className="deleted">
+          <h1>Deleted</h1>
+          <ListTodos status={"deleted"} />
+        </div>
+        <div className="completed">
+          <h1>Completed</h1>
+          <ListTodos status={"completed"} />
+        </div>
+        <div className="active">
+          <h1>Active</h1>
+          <ListTodos status={"active"} />
+        </div>
       </div>
-      <div className="completed">
-        <h1>Completed</h1>
-        <ListTodos status={"completed"} />
-      </div>
-      <div className="active">
-        <h1>Active</h1>
-        <ListTodos status={"active"} />
-      </div>
-    </TodoContainer>
-  );
+    );
+  };
+
+  const TestSidebar = () => {
+    return (
+      <motion.ul>
+        <li>dasdasdsa</li>
+        <li>dsadfdgfsdg</li>
+        <li>ghghafhfdh</li>
+        <li>hfagdgdasg</li>
+        <li>gadghgdgdsa</li>
+        <li>gadsgdhafgfjgf</li>
+        <li>hgsdjsghdhdfg</li>
+        <li>afdashflkjlasj</li>
+      </motion.ul>
+    );
+  };
+
+  return <Page pageContent={<Test />} pageControl={<TestSidebar />} />;
 }
