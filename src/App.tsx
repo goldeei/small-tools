@@ -11,8 +11,9 @@ import { userThemeAtom } from "./recoil/atoms/userThemeAtom";
 function App() {
   const [theme, setTheme] = useRecoilState(userThemeAtom);
 
+  //Set site theme
+  //Use device controlled theme if not previously set manually
   useEffect(() => {
-    console.log(theme);
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark"
     ).matches;
