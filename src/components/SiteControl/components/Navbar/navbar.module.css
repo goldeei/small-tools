@@ -1,3 +1,16 @@
 .container {
+  border-bottom: 1px solid white;
+  & > ul {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.dropdown {
+  min-height: 300px;
+  padding: 0.5rem;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
