@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useSetRecoilState } from "recoil";
-import { todoState } from "@/recoil/atoms/todoListAtom";
+import React, { useState } from "react";
+
+import styles from "./TodoItem/todo-item.module.css";
 
 const initial = {
   id: 0,
@@ -54,16 +54,25 @@ export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
   return (
     <div>
       Add Todo
-      <form id="new-todo-form" onSubmit={handleSubmit}>
+      <form
+        id="new-todo-form"
+        className={styles.container}
+        onSubmit={handleSubmit}
+      >
         <input
+          className={`${styles.title} item-header blue`}
           onChange={handleInputChange}
           type="text"
           id="new-todo-title"
           name="title"
-          placeholder="Title"
+          placeholder="Add your title here..."
           required
         />
+        <button id="add-todo" type="submit">
+          Add Todo
+        </button>
         <input
+          className={styles.description}
           onChange={handleInputChange}
           type="text"
           id="new-todo-description"
@@ -71,6 +80,7 @@ export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
           placeholder="Description"
         />
         <input
+          className={styles.effort}
           onChange={handleInputChange}
           type="range"
           id="new-todo-difficulty"
@@ -80,15 +90,13 @@ export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
           placeholder="Difficulty"
         />
         <input
+          className={styles.date}
           onChange={handleInputChange}
           type="date"
           id="new-todo-due"
           name="date"
           placeholder="Todo Due"
         />
-        <button id="add-todo" type="submit">
-          Add Todo
-        </button>
       </form>
       <button id="close-todo" onClick={() => showForm(!editing)}>
         X
