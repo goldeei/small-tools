@@ -25,7 +25,7 @@ const TodoContainer = styled(ToolContainer)`
 export default function Todos() {
   const Test = () => {
     return (
-      <div className="card">
+      <div className="card scrollY">
         <div className="deleted">
           <h1>Deleted</h1>
           <ListTodos status={"deleted"} />
