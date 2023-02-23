@@ -29,7 +29,7 @@ const item = {
 function TodoList({ status }: { status: string }) {
   const [todos, setTodos] = useRecoilState(todoState);
   const [editing, setEditing] = useState(false);
-  const [sort, setSort] = useState("reverse");
+
   const onUpdate: UpdateTodo = (e, id, key, value) => {
     e.stopPropagation();
     let updatedData = [...todos].map((item) => {
