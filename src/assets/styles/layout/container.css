@@ -1,0 +1,4 @@
+.scrollY {
+  max-height: inherit;
+  overflow-y: scroll;
+}
