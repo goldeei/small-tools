@@ -1,0 +1,18 @@
+.item-header {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2em;
+  &.blue {
+    color: rgb(108, 130, 159);
+  }
+}
+.subtitle {
+  font-weight: 600;
+  font-size: 0.85rem;
+  &.muted {
+    color: rgb(124, 124, 124);
+  }
+  &.spaced {
+    letter-spacing: 0.03rem;
+  }
+}
