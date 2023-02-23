@@ -7,13 +7,11 @@ function TodoBody({ todo, expanded }: Props) {
   return (
     <>
       <div className="header">{todo.title.toUpperCase()}</div>
-      {expanded && (
-        <div className="details">
-          <div className="description">{todo.description}</div>
-          <div className="dueDate">{todo.date}</div>
-          <div className="effort">{todo.difficulty}</div>
-        </div>
-      )}
+      <div className="details">
+        <div className="description">{todo.description}</div>
+        <div className="dueDate">{todo.date}</div>
+        <div className="effort">{todo.difficulty}</div>
+      </div>
     </>
   );
 }
