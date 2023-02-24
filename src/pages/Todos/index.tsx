@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useRecoilState } from "recoil";
 
 import TodoList from "./components/TodoList";
@@ -24,7 +23,7 @@ export default function TodoPage() {
 
   const TestSidebar = () => {
     return (
-      <div className="flex-column ">
+      <div className="flex-column">
         <label>
           Inbox
           <input
@@ -74,11 +73,6 @@ export default function TodoPage() {
           />
         </label>
       </div>
-      // <select value={filter} onChange={updateFilter}>
-      //   <option value="Show All">All</option>
-      //   <option value="Show Completed">Completed</option>
-      //   <option value="Show Uncompleted">Uncompleted</option>
-      // </select>
     );
   };
 
