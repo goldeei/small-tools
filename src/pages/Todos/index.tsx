@@ -1,61 +1,86 @@
 import { motion } from "framer-motion";
-import { ToolContainer } from "@/components/Layout";
-import ListTodos from "./components/TodoList";
-import styled from "styled-components";
+import { useRecoilState } from "recoil";
+
+import TodoList from "./components/TodoList";
 import Page from "@/components/Page";
+import { todoListFilterState } from "@/recoil/atoms/todoListAtom";
 
-const TodoContainer = styled(ToolContainer)`
-  grid-template-areas:
-    "completed active"
-    "deleted active";
-  grid-template-columns: 1fr 3fr;
-  column-gap: 5%;
-  row-gap: 2rem;
-  & > .active {
-    grid-area: active;
-  }
-  & > .completed {
-    grid-area: completed;
-  }
-  & > .deleted {
-    grid-area: deleted;
-  }
-`;
+export default function TodoPage() {
+  const [filter, setFilter] = useRecoilState(todoListFilterState);
 
-export default function Todos() {
-  const Test = () => {
-    return (
-      <div className="card scrollY">
-        <div className="deleted">
-          <h1>Deleted</h1>
-          <ListTodos status={"deleted"} />
-        </div>
-        <div className="completed">
-          <h1>Completed</h1>
-          <ListTodos status={"completed"} />
-        </div>
-        <div className="active">
-          <h1>Active</h1>
-          <ListTodos status={"active"} />
-        </div>
-      </div>
-    );
+  //If move to checkboxes
+  // const updateFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const target = e.target;
+  //   const currFilters = target.checked
+  //     ? [...filterArray, target.value]
+  //     : filterArray.filter((x) => x !== target.value);
+  //   console.log(currFilters);
+  //   setFilter(currFilters);
+  // };
+
+  const updateFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.target.value);
   };
 
   const TestSidebar = () => {
     return (
-      <motion.ul>
-        <li>dasdasdsa</li>
-        <li>dsadfdgfsdg</li>
-        <li>ghghafhfdh</li>
-        <li>hfagdgdasg</li>
-        <li>gadghgdgdsa</li>
-        <li>gadsgdhafgfjgf</li>
-        <li>hgsdjsghdhdfg</li>
-        <li>afdashflkjlasj</li>
-      </motion.ul>
+      <div className="flex-column ">
+        <label>
+          Inbox
+          <input
+            id="inbox-filter"
+            type="radio"
+            name="todo-filters"
+            value="Inbox"
+            checked={filter === "Inbox"}
+            onChange={updateFilter}
+            hidden
+          />
+        </label>
+        <label>
+          Completed
+          <input
+            id="completed-filter"
+            type="radio"
+            name="todo-filters"
+            value="Completed"
+            checked={filter === "Completed"}
+            onChange={updateFilter}
+            hidden
+          />
+        </label>
+        <label>
+          Deleted
+          <input
+            id="deleted-filter"
+            type="radio"
+            name="todo-filters"
+            value="Deleted"
+            checked={filter === "Deleted"}
+            onChange={updateFilter}
+            hidden
+          />
+        </label>
+        <label>
+          All
+          <input
+            id="all-filter"
+            type="radio"
+            name="todo-filters"
+            value="All"
+            checked={filter === "All"}
+            onChange={updateFilter}
+            hidden
+          />
+        </label>
+      </div>
+      // <select value={filter} onChange={updateFilter}>
+      //   <option value="Show All">All</option>
+      //   <option value="Show Completed">Completed</option>
+      //   <option value="Show Uncompleted">Uncompleted</option>
+      // </select>
     );
   };
 
-  return <Page pageContent={<Test />} pageControl={<TestSidebar />} />;
+  return <Page pageContent={<TodoList />} pageControl={<TestSidebar />} />;
 }

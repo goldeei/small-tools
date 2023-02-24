@@ -13,13 +13,18 @@ const initial = {
 };
 
 interface Props {
-  todos: TodoItem[];
-  setTodos: (params: TodoItem[]) => void;
-  showForm: (params: boolean) => void;
   editing: boolean;
+  showForm: (params: boolean) => void;
+  onUpdateData: (data: TodoItem) => void;
+  todoListLength: number;
 }
 
-export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
+export default function AddTodo({
+  editing,
+  showForm,
+  onUpdateData,
+  todoListLength,
+}: Props) {
   const [data, setData] = useState(initial);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,19 +42,16 @@ export default function AddTodo({ todos, setTodos, editing, showForm }: Props) {
     form?.querySelectorAll("input").forEach((input) => (input.value = ""));
   };
   const addTodo = (todo: TodoItem) => {
-    const newTodos = [
-      ...todos,
-      {
-        id: todos.length,
-        title: todo.title,
-        description: todo.description,
-        difficulty: todo.difficulty,
-        date: todo.date,
-        complete: false,
-        timeDeleted: null,
-      },
-    ];
-    return setTodos(newTodos);
+    const newTodo = {
+      id: todoListLength,
+      title: todo.title,
+      description: todo.description,
+      difficulty: todo.difficulty,
+      date: todo.date,
+      complete: false,
+      timeDeleted: null,
+    };
+    return onUpdateData(newTodo);
   };
   return (
     <div>
