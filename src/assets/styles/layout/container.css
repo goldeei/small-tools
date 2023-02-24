@@ -2,3 +2,8 @@
   max-height: inherit;
   overflow-y: scroll;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
