@@ -3,5 +3,5 @@
   flex-direction: column;
   flex: 0 1 500px;
   max-height: 500px;
-  padding: var(--p-md);
+  margin-bottom: 1rem;
 }

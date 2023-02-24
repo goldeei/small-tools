@@ -11,8 +11,8 @@ interface Props {
 
 function Page({ pageControl, pageContent }: Props) {
   return (
-    <div className={styles.container}>
-      <div className="card">
+    <div className={`${styles.container}`}>
+      <div className="card sidebar">
         <SiteControl />
         {pageControl}
       </div>
