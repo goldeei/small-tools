@@ -34,7 +34,7 @@ function TodoList() {
     <div>
       {filter}
       {todoList.map((todo: TodoItem) => (
-        <TodoItem todo={todo} onUpdate={updateTodoProperty} />
+        <TodoItem key={todo.id} todo={todo} onUpdate={updateTodoProperty} />
       ))}
       {editing ? (
         <AddTodo
