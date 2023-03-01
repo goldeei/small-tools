@@ -4,6 +4,10 @@ import TodoList from "./components/TodoList";
 import Page from "@/components/Page";
 import { todoListFilterState } from "@/recoil/atoms/todoListAtom";
 
+import { Inbox, CheckmarkSquare, Trash } from "@/components/Icons";
+
+import styles from "./todos.modules.css";
+
 export default function TodoPage() {
   const [filter, setFilter] = useRecoilState(todoListFilterState);
 
@@ -23,8 +27,9 @@ export default function TodoPage() {
 
   const TestSidebar = () => {
     return (
-      <div className="flex-column">
-        <label>
+      <div className="flex-column radios-as-buttons">
+        <label className={`btn has-icon ${filter === "Inbox" ? "active" : ""}`}>
+          <Inbox />
           Inbox
           <input
             id="inbox-filter"
@@ -36,7 +41,10 @@ export default function TodoPage() {
             hidden
           />
         </label>
-        <label>
+        <label
+          className={`btn has-icon ${filter === "Completed" ? "active" : ""}`}
+        >
+          <CheckmarkSquare />
           Completed
           <input
             id="completed-filter"
@@ -48,7 +56,10 @@ export default function TodoPage() {
             hidden
           />
         </label>
-        <label>
+        <label
+          className={`btn has-icon ${filter === "Deleted" ? "active" : ""}`}
+        >
+          <Trash />
           Deleted
           <input
             id="deleted-filter"
@@ -60,8 +71,8 @@ export default function TodoPage() {
             hidden
           />
         </label>
-        <label>
-          All
+        <label className={`btn ${filter === "All" ? "active" : ""}`}>
+          Show All
           <input
             id="all-filter"
             type="radio"
