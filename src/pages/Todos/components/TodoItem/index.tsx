@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import { Button } from "@/components/Buttons";
-import { Checkmark, Ellipses } from "@/components/Icons";
+import { Checkmark } from "@/components/Icons";
 
 import TodoBody from "../TodoBody";
-import TodoControls from "../TodoControls";
+import TodoControls from "./TodoControls";
 
 import styles from "./todo-item.module.css";
 
