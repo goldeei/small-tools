@@ -14,7 +14,7 @@ function Page({ pageControl, pageContent }: Props) {
     <div className={`${styles.container}`}>
       <div className="card sidebar">
         <SiteControl />
-        {pageControl}
+        <div className={`${styles.controls}`}>{pageControl}</div>
       </div>
       {pageContent}
     </div>
