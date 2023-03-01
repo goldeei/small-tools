@@ -1,3 +1,10 @@
 .radios-as-buttons {
-  gap: 0.5rem;
+  gap: var(--gap-sm);
+  .btn {
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  & > *.active {
+  }
 }
