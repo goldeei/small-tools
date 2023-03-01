@@ -9,6 +9,9 @@ import {
   faChevronDown,
   faEllipsisH,
   faEllipsisV,
+  faInbox,
+  faTrash,
+  faSquareCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
@@ -65,5 +68,23 @@ export const Ellipses = ({ animate, orientation }: Props) => {
       icon={orientation === "vertical" ? faEllipsisV : faEllipsisH}
       className={animate ? "animated" : ""}
     />
+  );
+};
+export const Inbox = ({ animate, orientation }: Props) => {
+  return (
+    <FontAwesomeIcon icon={faInbox} className={animate ? "animated" : ""} />
+  );
+};
+export const CheckmarkSquare = ({ animate, orientation }: Props) => {
+  return (
+    <FontAwesomeIcon
+      icon={faSquareCheck}
+      className={animate ? "animated" : ""}
+    />
+  );
+};
+export const Trash = ({ animate, orientation }: Props) => {
+  return (
+    <FontAwesomeIcon icon={faTrash} className={animate ? "animated" : ""} />
   );
 };
