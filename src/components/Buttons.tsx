@@ -3,12 +3,13 @@ import { MouseEventHandler } from "react";
 interface Button {
   children: React.ReactNode;
   className?: string;
+  id?: string;
   onClick?: MouseEventHandler;
 }
 
-export const Button = ({ className, children, onClick }: Button) => {
+export const Button = ({ id, className, children, onClick }: Button) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button id={id} className={className} onClick={onClick}>
       {children}
     </button>
   );
