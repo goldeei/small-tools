@@ -7,6 +7,8 @@ import {
   faXmark,
   faPenToSquare,
   faChevronDown,
+  faChevronLeft,
+  faChevronRight,
   faEllipsisH,
   faEllipsisV,
   faInbox,
@@ -58,6 +60,22 @@ export const DownCaret = ({ animate }: Props) => {
   return (
     <FontAwesomeIcon
       icon={faChevronDown}
+      className={animate ? "animated" : ""}
+    />
+  );
+};
+export const LeftCaret = ({ animate }: Props) => {
+  return (
+    <FontAwesomeIcon
+      icon={faChevronLeft}
+      className={animate ? "animated" : ""}
+    />
+  );
+};
+export const RightCaret = ({ animate }: Props) => {
+  return (
+    <FontAwesomeIcon
+      icon={faChevronRight}
       className={animate ? "animated" : ""}
     />
   );
