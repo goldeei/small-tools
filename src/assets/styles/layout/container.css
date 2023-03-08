@@ -1,6 +1,6 @@
 .scrollY {
   max-height: inherit;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .flex-column {
