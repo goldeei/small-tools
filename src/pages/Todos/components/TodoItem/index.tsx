@@ -13,7 +13,7 @@ interface Props {
   onUpdate: UpdateTodo;
 }
 
-function TodoItem({ todo, onUpdate }: Props) {
+function TodoItem({ todo, onUpdate, edit }: Props) {
   const [isExpanded, setExpanded] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const hasDetails = todo.description || todo.difficulty ? true : false;
@@ -46,7 +46,7 @@ function TodoItem({ todo, onUpdate }: Props) {
       </div>
       <div className={`${styles.title} item-header blue`}>{todo.title}</div>
       <div className="expand">
-        <TodoControls todo={todo} onUpdate={onUpdate} />
+        <TodoControls todo={todo} onUpdate={onUpdate} edit={edit} />
       </div>
       {todo.description && (
         <div className={`${styles.description}`}>{todo.description}</div>
@@ -54,6 +54,11 @@ function TodoItem({ todo, onUpdate }: Props) {
       {todo.date && (
         <div className={`${styles.date} subtitle muted spaced`}>
           Due: {todo.date}
+        </div>
+      )}
+      {todo.difficulty !== 0 && (
+        <div className={`${styles.difficulty} subtitle muted spaced`}>
+          {todo.difficulty}
         </div>
       )}
       <div className="todo-controls"></div>

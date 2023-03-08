@@ -11,12 +11,12 @@ import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
 function TodoList() {
-  const [editing, setEditing] = useState(false);
-
   const addTodo = useSetRecoilState(addTodoSelector);
   const [todoData, setTodoData] = useRecoilState(todoDataStateAtom);
   const todoList = useRecoilValue(filterTodosSelector);
   const filter = useRecoilValue(todoListFilterState);
+
+  const [isShowForm, setShowForm] = useState(0); //Form id
 
   const updateTodoProperty: UpdateTodo = (e, id, key, value) => {
     e.stopPropagation();
@@ -29,22 +29,42 @@ function TodoList() {
   const updateTodoData = (data: TodoItem) => {
     addTodo(data);
   };
-
+  const closeForm = () => {
+    setShowForm(0);
+  };
+  const showForm = (e, id) => {
+    setShowForm(id);
+  };
   return (
-    <div>
+    <div className="scrollY card">
       {filter}
       {todoList.map((todo: TodoItem) => (
-        <TodoItem key={todo.id} todo={todo} onUpdate={updateTodoProperty} />
+        <>
+          {isShowForm === todo.id ? (
+            <AddTodo
+              key={`${todo.id}__form`}
+              todo={todo}
+              onUpdateData={updateTodoData}
+              close={closeForm}
+            />
+          ) : (
+            <TodoItem
+              key={`${todo.id}__todo`}
+              todo={todo}
+              onUpdate={updateTodoProperty}
+              edit={showForm}
+            />
+          )}
+        </>
       ))}
-      {editing ? (
+      {isShowForm === 1 ? (
         <AddTodo
-          showForm={setEditing}
-          todoListLength={todoData.todos.length}
+          key={"newTodoForm"}
           onUpdateData={updateTodoData}
-          editing={editing}
+          close={closeForm}
         />
       ) : (
-        <button onClick={() => setEditing(!editing)}>+</button>
+        <button onClick={() => setShowForm(1)}>Add Todo</button>
       )}
     </div>
   );
