@@ -7,6 +7,7 @@ import {
   todoListFilterState,
 } from "@/recoil/atoms/todoListAtom";
 
+import styles from "../todo.module.css";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
@@ -36,7 +37,7 @@ function TodoList() {
     setShowForm(id);
   };
   return (
-    <div className="scrollY card">
+    <div className={`${styles.listContainer} flex-column scrollY`}>
       {filter}
       {todoList.map((todo: TodoItem) => (
         <>
@@ -50,6 +51,7 @@ function TodoList() {
           ) : (
             <TodoItem
               key={`${todo.id}__todo`}
+              className={"card"}
               todo={todo}
               onUpdate={updateTodoProperty}
               edit={showForm}
