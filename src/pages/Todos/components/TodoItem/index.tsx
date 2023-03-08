@@ -10,10 +10,11 @@ import styles from "./todo-item.module.css";
 
 interface Props {
   todo: TodoItem;
+  className?: string;
   onUpdate: UpdateTodo;
 }
 
-function TodoItem({ todo, onUpdate, edit }: Props) {
+function TodoItem({ todo, className, onUpdate, edit }: Props) {
   const [isExpanded, setExpanded] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const hasDetails = todo.description || todo.difficulty ? true : false;
@@ -33,7 +34,7 @@ function TodoItem({ todo, onUpdate, edit }: Props) {
 
   return (
     <div
-      className={`${styles.container}`}
+      className={`${styles.container} ${className}`}
       id={`todo-${todo.id}`}
       onClick={toggleExpanded}
     >
