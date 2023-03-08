@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useRecoilState, useRecoilCallback } from "recoil";
+import { useRecoilState } from "recoil";
 
 import styles from "./App.module.css";
 
