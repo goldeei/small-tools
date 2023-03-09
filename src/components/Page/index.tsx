@@ -12,11 +12,15 @@ interface Props {
 function Page({ pageControl, pageContent }: Props) {
   return (
     <div className={`${styles.container}`}>
-      <div className="card sidebar">
+      <div className={`card shadow__near ${styles.navWrapper}`}>
         <SiteControl />
-        <div className={`${styles.controls}`}>{pageControl}</div>
       </div>
-      {pageContent}
+      <header className={`card shadow__near ${styles.headerWrapper}`}></header>
+      <div className={`card shadow__near ${styles.sidebarWrapper}`}>
+        {pageControl}
+      </div>
+      <div className={`${styles.contentWrapper}`}>{pageContent}</div>
+      <footer className={`card shadow__near ${styles.footerWrapper}`}></footer>
     </div>
   );
 }
