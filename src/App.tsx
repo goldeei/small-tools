@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 
 import styles from "./App.module.css";
 
+import Background from "./components/Background";
 import Home from "@/pages/Home";
 import TodoList from "@/pages/Todos";
 import { userThemeAtom } from "./recoil/atoms/userThemeAtom";
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/todo-list" element={<TodoList />} />
       </Routes>
+      <Background />
     </div>
   );
 }

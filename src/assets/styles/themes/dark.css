@@ -1,4 +1,12 @@
 :root[data-theme="dark"] {
-  --bg-color: darkgrey;
-  --primary: grey;
+  --bg-color: hsl(210, 94%, 6%);
+  --primary: #15202a;
+  --glass__radial: radial-gradient(
+    circle at center top,
+    hsla(210, 94%, 12%, 0.7),
+    hsla(210, 94%, 8%, 0.5) 60%,
+    hsla(210, 94%, 4%, 0.15) 100%
+  );
+  --glass__radial-borderShadow: inset 0 -1px 0px 2px rgba(0, 0, 0, 0.15),
+    inset 0 2px 0 0px rgba(60, 60, 60, 0.75);
 }
