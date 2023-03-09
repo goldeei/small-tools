@@ -26,6 +26,7 @@
   position: relative;
   grid-area: content;
   padding: 1rem;
+  overflow-y: auto;
 }
 .footerWrapper {
   grid-area: footer;
