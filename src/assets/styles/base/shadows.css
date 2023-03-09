@@ -1,13 +1,13 @@
 :root {
   &[data-theme="light"] {
     .shadow__near {
-      box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 3px -1px,
+      box-shadow: rgba(0, 0, 0, 0.125) 0px 10px 3px -4px,
         rgba(0, 0, 0, 0.1) 0px -3px 0px inset;
     }
   }
   &[data-theme="dark"] {
     .shadow__near {
-      box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px -1px,
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 3px -4px,
         rgba(0, 0, 0, 0.45) 0px -3px 0px inset;
     }
   }
