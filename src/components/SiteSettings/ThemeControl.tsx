@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button } from "../../../Buttons";
+import { Button } from "@/components/Buttons";
 
 function ThemeControl() {
   const [isTheme, setTheme] = useState(

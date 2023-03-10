@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-import Controls from "../Controls";
+import Controls from "@/components/SiteSettings";
 
 interface Props {
   item: string;

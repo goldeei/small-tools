@@ -1,7 +1,7 @@
 import ThemeControl from "./ThemeControl";
 import ClearLocalStorage from "./ClearLocalStorage";
 
-function Controls() {
+function SiteSettings() {
   return (
     <div>
       <ThemeControl />
@@ -10,4 +10,4 @@ function Controls() {
   );
 }
 
-export default Controls;
+export default SiteSettings;
