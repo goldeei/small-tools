@@ -37,7 +37,7 @@ function TodoList() {
     setShowForm(id);
   };
   return (
-    <div className={`${styles.listContainer} flex-column scrollY`}>
+    <div className={`${styles.listContainer} flex-column`}>
       {filter}
       {todoList.map((todo: TodoItem) => (
         <>
@@ -51,7 +51,7 @@ function TodoList() {
           ) : (
             <TodoItem
               key={`${todo.id}__todo`}
-              className={"card"}
+              className={"card shadow__near"}
               todo={todo}
               onUpdate={updateTodoProperty}
               edit={showForm}
