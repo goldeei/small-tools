@@ -1,33 +1,36 @@
-.container {
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
-  display: grid;
-  grid-template-areas:
-    "navbar header"
-    "sidebar content"
-    "footer footer";
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: auto 1fr auto;
   gap: 0.5rem;
-  & > *:not(.contentWrapper) {
+  & > :first-child {
+    flex: 1;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.5rem;
+}
+.sidebar-container,
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  & > :first-child {
+    flex: 0 0 75px;
+  }
+  & > :last-child {
+    flex: 1;
+  }
+  & > * {
     padding: 0.5rem;
   }
 }
-
-.navWrapper {
-  grid-area: navbar;
-}
-.headerWrapper {
-  grid-area: header;
-}
-.sidebarWrapper {
-  grid-area: sidebar;
-}
-.contentWrapper {
-  position: relative;
-  grid-area: content;
+.content-wrapper {
   padding: 1rem;
-  overflow-y: auto;
 }
-.footerWrapper {
-  grid-area: footer;
+.footer-wrapper {
+  grid-column: 1 / -1;
+  padding: 0.5rem;
 }

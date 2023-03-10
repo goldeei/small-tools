@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import SiteControl from "@/components/SiteControl";
+import Navbar from "@/components/Navbar";
 
 import styles from "./page.module.css";
 
@@ -11,16 +11,27 @@ interface Props {
 
 function Page({ pageControl, pageContent }: Props) {
   return (
-    <div className={`${styles.container}`}>
-      <div className={`card shadow__near ${styles.navWrapper}`}>
-        <SiteControl />
+    <div className={`${styles.pageWrapper}`}>
+      <div className={`${styles.container}`}>
+        <div className={`${styles.sidebarContainer}`}>
+          <div className={`card shadow__near ${styles.navWrapper}`}>
+            <Navbar />
+          </div>
+          <div className={`card shadow__near ${styles.sidebarWrapper}`}>
+            {pageControl}
+          </div>
+        </div>
+        <div className={`${styles.contentContainer}`}>
+          <header className={`card shadow__near ${styles.headerWrapper}`}>
+            dsadsadsa
+          </header>
+          <div className={`${styles.contentWrapper}`}>{pageContent}</div>
+        </div>
       </div>
-      <header className={`card shadow__near ${styles.headerWrapper}`}></header>
-      <div className={`card shadow__near ${styles.sidebarWrapper}`}>
-        {pageControl}
-      </div>
-      <div className={`${styles.contentWrapper}`}>{pageContent}</div>
-      <footer className={`card shadow__near ${styles.footerWrapper}`}></footer>
+      <footer className={`card shadow__near ${styles.footerWrapper}`}>
+        <div>dsadsad</div>
+        <div>dsadsad</div>
+      </footer>
     </div>
   );
 }
